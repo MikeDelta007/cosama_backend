@@ -23,6 +23,7 @@ public class FretController {
 
     @PostMapping("/createFret")
     @ResponseStatus(HttpStatus.CREATED)
+
     public FretClientResponseDTO createFret(@RequestBody FretCltDTO fretCltDTO, @RequestParam long cltCmptId, @RequestParam long voyId, @RequestParam long bilId, @RequestParam boolean expEqDest)
     {
         return fret.add_Fret(fretCltDTO, cltCmptId, voyId, bilId, expEqDest);

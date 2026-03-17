@@ -198,7 +198,6 @@ public class FretService {
                         f -> !f.isApplyPayment() ? "Frêt pas encore réglé" : "Frêt réglé",
                         LinkedHashMap::new,
                         Collectors.mapping(f -> {
-
                             FretDTOs dto = new FretDTOs();
                             // Conversion des champs simples
                             dto.setFretCode(f.getFretCode());
@@ -605,6 +604,7 @@ public class FretService {
                 fretDTO.setBillet(billet.getBilCode());
                 logger.info("ID BILLET :" + fretDTO.getBillet());
             }
+
             fret = addFretOps(false, fretDTO, cltCmptId, voyId, isExtEqDest);
             fret.setFretClient(savedCltfret);
 
@@ -718,6 +718,7 @@ public class FretService {
                     logger.info("AUTRE" + billet.getBilCode());
                     fretDTO.setBillet(billet.getBilCode());
                 }
+
                 fret = addFretOps(false, fretDTO, cltCmptId, voyId, isExtEqDest);
                 fret.setFretClient(savedCltfret);
 
@@ -738,7 +739,6 @@ public class FretService {
         }
 
         fret.setLigneFrets(ligneFretList);
-
         return new FretClientResponseDTO(savedCltfret, fret);
 
     }
